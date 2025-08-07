@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangladesh Emergency Help Centre (BEHC)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap-5.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Sans Bengali', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #e6f4ea, #ffffff);
+      color: #333;
+    }
+
+    header {
+      background: #047857;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    header div {
+      font-size: 0.9rem;
+    }
+
+    section.hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    section.hero h2 {
+      color: #065f46;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    section.hero p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #4b5563;
+    }
+
+    .btn-primary {
+      background-color: #dc2626;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .icon {
+      font-size: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 40px;
+      height: auto;
+    }
+
+    .card h3 {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .btn-outline {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    a.btn-outline[href^="tel:"] {
+      border: 1px solid #dc2626;
+      background-color: #dc2626;
+      color: white;
+    }
+
+    a.btn-outline[href^="tel:"]:hover {
+      background-color: #b91c1c;
+    }
+
+    a.btn-outline[href^="https://www.google.com/maps"] {
+      border: 1px solid #10b981;
+      background-color: #10b981;
+      color: white;
+    }
+
+    a.btn-outline[href^="https://www.google.com/maps"]:hover {
+      background-color: #059669;
+    }
+
+    a.btn-outline[href^="sms:"] {
+      border: 1px solid #3b82f6;
+      background-color: #3b82f6;
+      color: white;
+    }
+
+    a.btn-outline[href^="sms:"]:hover {
+      background-color: #2563eb;
+    }
+
+
+#contact {
+  background: linear-gradient(to bottom right, #047857, #047857);
+  color: #f9fafb;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: #aca4a4;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+#contact p {
+  color: #d1d5db;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+#contact form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#contact form .form-control {
+  background-color: #374151;
+  color: white;
+  border: 1px solid #4b5563;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+#contact form .form-control::placeholder {
+  color: #9ca3af;
+}
+
+#contact form .form-control:focus {
+  border-color: #f97316;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(249, 115, 22, 0.25);
+}
+
+#contact button {
+  background-color: #f97316;
+  border: none;
+  padding: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+#contact button:hover {
+  background-color: #ea580c;
+}
+
+#contact .text-light {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+#contact .text-light a {
+  color: #fbbf24;
+  text-decoration: none;
+}
+
+#contact .text-light a:hover {
+  text-decoration: underline;
+}
+
+/* Smooth entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  #contact h2 {
+    font-size: 2rem;
+  }
+
+  #contact p {
+    font-size: 0.95rem;
+  }
+
+  #contact form .form-control,
+  #contact button {
+    font-size: 0.95rem;
+  }
+
+  #contact .text-light {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+    
+    footer {
+      background: #f3f4f6;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>বাংলাদেশ ইমারজেন্সি হেল্প সেন্টার (BEHC)</h1>
+    <div>সরাসরি কল / এস.এম.এস | Location Auto Share</div>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <i class="icon bi bi-browser-firefox"></i>
+      <h3>ফায়ার সার্ভিস</h3>
+      <a href="tel:199" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Bangladesh+Fire+Service" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:199" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-car-front-fill"></i>
+      <h3>পুলিশ বিভাগ</h3>
+      <a href="tel:999" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Bangladesh+Police+Headquarters" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:999" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-tree-fill"></i>
+      <h3>বন বিভাগ</h3>
+      <a href="tel:+88029551119" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Department+of+Forests" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:+88029551119" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-cash-coin"></i>
+      <h3>দুদক বিভাগ</h3>
+      <a href="tel:106" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Anti+Corruption+Commission" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:106" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-person-rolodex"></i>
+      <h3>ভোক্তা অধিকার</h3>
+      <a href="tel:16121" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Consumer+Rights+Protection" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:16121" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-airplane-engines-fill"></i>
+      <h3>এয়ারলাইনস</h3>
+      <a href="tel:13636" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Biman+Bangladesh+Airlines" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:13636" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-snow2"></i>
+      <h3>নাবিক বিভাগ</h3>
+      <a href="tel:+880241046701" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Department+of+Shipping" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:+880241046701" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-hospital-fill"></i>
+      <h3>হাসপাতাল</h3>
+      <a href="tel:16263" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Health+Services,+Mohakhali" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:16263" class="btn-outline">মেসেজ</a>
+    </div>
+
+    <div class="card">
+      <i class="icon bi bi-person-standing-dress"></i>
+      <h3>নারী ও শিশু বিভাগ</h3>
+      <a href="tel:109" class="btn-outline">কল করুন</a>
+      <a href="https://www.google.com/maps?q=Ministry+of+Women+and+Children+Affairs" target="_blank" class="btn-outline">লোকেশন</a>
+      <a href="sms:109" class="btn-outline">মেসেজ</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Column -->
+        <div class="col-md-6 mb-4 mb-md-0 text-center text-md-start">
+          <h2 class="mb-3">আপনার মতামত দিন</h2>
+          <p>আপনার পরামর্শ বা প্রশ্ন আমাদের কাছে গুরুত্বপূর্ণ। দয়া করে আপনার বার্তা লিখুন এবং পাঠান।</p>
+        </div>
+        <!-- Right Column (Form) -->
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="আপনার নাম">
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="5" placeholder="আপনার বার্তা লিখুন..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger w-100">মেসেজ পাঠান</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 বাংলাদেশ ইমারজেন্সি হেল্প সেন্টার | ডিজাইন করেছে BEHC টিম
+  </footer>
+
+  <script src="bootstrap-5.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
